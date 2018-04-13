@@ -191,6 +191,9 @@ MonoBehaviour:
   caveRepetition: 4
   caveZLength: 6
   spacing: 2
+  spawnTime: 40
+  spawnSpeed: 0.05
+  spawnStoppingSpeed: 1
 --- !u!4 &277833010
 Transform:
   m_ObjectHideFlags: 0

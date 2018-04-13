@@ -12,14 +12,14 @@ public class PlayerControlBehaviour : MonoBehaviour {
 	public int vibrationIntensity;
 
     //Dash
+	[HideInInspector]
     public bool dashing;
     public float dashTime;
     public float dashSpeed;
     public float dashStoppingSpeed;
-
-    private Vector3 direction;
     private float currentDashTime;
-    private float spacing;
+    private Vector3 direction;
+    private float dashDistance;
 
 	private void Awake() {
 		instance = this;
@@ -28,7 +28,7 @@ public class PlayerControlBehaviour : MonoBehaviour {
     }
 
     private void Start() {
-        spacing = CaveGeneration.instance.spacing;
+        dashDistance = CaveGeneration.instance.spacing;
     }
 
     private void FixedUpdate() {
