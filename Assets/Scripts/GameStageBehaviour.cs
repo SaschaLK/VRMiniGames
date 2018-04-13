@@ -10,14 +10,14 @@ public class GameStageBehaviour : MonoBehaviour {
     public GameObject player;
     public GameObject musicManager;
 
-	//private enum GameStates {
-	//	PickaxeStage, StartGameStoneStage, MiningStage, EndGameStage,
-	//}
- //   private GameStates currentState;
+	private bool temp;
 
 	private void Awake() {
 		instance = this;
         player.GetComponentInChildren<PlayerControlBehaviour>().enabled = true;
+
+		musicManager.GetComponent<AudioSource>().enabled = false;
+		musicManager.SetActive(false);
 	}
 
 	private void Start() {
@@ -27,8 +27,7 @@ public class GameStageBehaviour : MonoBehaviour {
     //If Game hasn't begun, only Pickaxe is visible
     public void SetPickaxeStage() {
         map.GetComponent<CaveGeneration>().SpawnEmpty();
-        //musicManager.
-    }
+	}
 
     //If Pickaxe is picked up, spawn StartStone
     public void SetStartGameStoneStage() {
@@ -38,9 +37,32 @@ public class GameStageBehaviour : MonoBehaviour {
     //If StartStone is smashed, Spawn Map
     public void SetMiningStage() {
         map.GetComponent<CaveGeneration>().BuildCave();
-    }
+		StartCoroutine(BuildingCave());
+	}
 
     //If Time is over, set Endscreen
     public void SetEndGameStage() {
-    }
+
+	}
+
+	IEnumerator BuildingCave() {
+		//Before Build
+
+		yield return new WaitForSecondsRealtime(5);
+
+		//After Build
+		musicManager.SetActive(true);
+		musicManager.GetComponent<AudioSource>().enabled = true;
+	}
+
+	//no oculus test
+	private void Update() {
+		if(!temp && Time.time > 5) {
+			temp = true;
+			musicManager.SetActive(true);
+			musicManager.GetComponent<AudioSource>().enabled = true;
+
+			map.GetComponent<CaveGeneration>().PlaceStartStone();
+		}
+	}
 }

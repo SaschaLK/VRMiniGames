@@ -44,7 +44,9 @@ public class CaveGeneration : MonoBehaviour {
     }
 
     public void PlaceStartStone() {
-        Instantiate(startStone, new Vector3(0, 0, -1.4f), Quaternion.identity, caveHolder.transform);
+        GameObject temp = Instantiate(startStone, new Vector3(0, -3, -1.4f), Quaternion.identity, caveHolder.transform);
+		//temp
+
     }
 
     public void BuildCave() {

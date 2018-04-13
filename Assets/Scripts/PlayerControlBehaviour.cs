@@ -13,10 +13,6 @@ public class PlayerControlBehaviour : MonoBehaviour {
 
     //Dash
     public bool dashing;
-    public Vector3 leftDash;
-    public Vector3 centerDash;
-    public Vector3 rightDash;
-
     public float dashTime;
     public float dashSpeed;
     public float dashStoppingSpeed;
@@ -33,9 +29,6 @@ public class PlayerControlBehaviour : MonoBehaviour {
 
     private void Start() {
         spacing = CaveGeneration.instance.spacing;
-        //leftDash = new Vector3(-spacing, 0, spacing);
-        //centerDash = new Vector3(0, 0, spacing);
-        //rightDash = new Vector3(spacing, 0, spacing);
     }
 
     private void FixedUpdate() {
@@ -62,16 +55,4 @@ public class PlayerControlBehaviour : MonoBehaviour {
 			}
 		}
 	}
-
-    public void SetDirectionLeft() {
-        direction = leftDash;
-    }
-    
-    public void SetDirectionCenter() {
-        direction = centerDash;
-    }
-
-    public void SetDirectionRight() {
-        direction = rightDash;
-    }
 }
