@@ -43,14 +43,18 @@ public class StoneBehaviour : MonoBehaviour {
             else {
                 Debug.Log("You fucked up");
             }
-
-            Destroy (gameObject.transform.parent.gameObject);
-            Destroy (gameObject);
+			gameObject.transform.parent.gameObject.SetActive(false);
+            //Destroy (gameObject.transform.parent.gameObject);
+            //Destroy (gameObject);
         }
         PickaxeBehaviour.instance.PlayPickSound (stonePosition);
     }
 
-    public void SetStoneType(StoneType stoneType) {
+	private void OnDisable() {
+		GameStageBehaviour.instance.score++;
+	}
+
+	public void SetStoneType(StoneType stoneType) {
         if(stoneType.Equals(StoneType.lcrStone)) {
             SetLCRStone();
         }

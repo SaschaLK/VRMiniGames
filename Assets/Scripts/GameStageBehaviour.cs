@@ -9,6 +9,8 @@ public class GameStageBehaviour : MonoBehaviour {
 	public GameObject map;
     public GameObject player;
     public GameObject musicManager;
+	[HideInInspector]
+	public int score;
 
 	private bool temp;
 
@@ -18,6 +20,8 @@ public class GameStageBehaviour : MonoBehaviour {
 
 		musicManager.GetComponent<AudioSource>().enabled = false;
 		musicManager.SetActive(false);
+
+		score = 0;
 	}
 
 	private void Start() {
@@ -59,10 +63,9 @@ public class GameStageBehaviour : MonoBehaviour {
 	private void Update() {
 		if(!temp && Time.time > 5) {
 			temp = true;
-			musicManager.SetActive(true);
-			musicManager.GetComponent<AudioSource>().enabled = true;
-
-			map.GetComponent<CaveGeneration>().PlaceStartStone();
+			//SetMiningStage();
+			SetStartGameStoneStage();
 		}
+		Debug.Log(score);
 	}
 }
