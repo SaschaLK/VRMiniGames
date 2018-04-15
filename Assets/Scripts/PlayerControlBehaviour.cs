@@ -23,6 +23,7 @@ public class PlayerControlBehaviour : MonoBehaviour {
 
 	private void Awake() {
 		instance = this;
+		DontDestroyOnLoad(this.gameObject);
         currentDashTime = dashTime;
         direction = Vector3.zero;
     }

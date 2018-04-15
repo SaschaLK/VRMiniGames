@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStageBehaviour : MonoBehaviour {
 
 	public static GameStageBehaviour instance;
 
 	public GameObject map;
+	//public Scene endGameScene;
     public GameObject player;
     public GameObject musicManager;
 	[HideInInspector]
@@ -16,6 +18,8 @@ public class GameStageBehaviour : MonoBehaviour {
 
 	private void Awake() {
 		instance = this;
+		DontDestroyOnLoad(this.gameObject);
+
         player.GetComponentInChildren<PlayerControlBehaviour>().enabled = true;
 
 		musicManager.GetComponent<AudioSource>().enabled = false;
@@ -46,7 +50,7 @@ public class GameStageBehaviour : MonoBehaviour {
 
     //If Time is over, set Endscreen
     public void SetEndGameStage() {
-
+		SceneManager.LoadScene("EndGame");
 	}
 
 	IEnumerator BuildingCave() {
@@ -64,7 +68,8 @@ public class GameStageBehaviour : MonoBehaviour {
 		if(!temp && Time.time > 5) {
 			temp = true;
 			//SetMiningStage();
-			SetStartGameStoneStage();
+			//SetStartGameStoneStage();
+			SetEndGameStage();
 		}
 		Debug.Log(score);
 	}

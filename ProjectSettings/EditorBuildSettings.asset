@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MiningGameV2.unity
+    guid: ec814e917e69a244191b08dad2c18bb6
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: cffdb2456f322994782bbdc327131561
