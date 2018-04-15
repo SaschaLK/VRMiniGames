@@ -54,7 +54,6 @@ public class CaveGeneration : MonoBehaviour {
 
 	IEnumerator SpawnStartStone(GameObject temp) {
 		for (float i = 0; i < spawnTime; i += spawnStoppingSpeed) {
-			Debug.Log(Mathf.Sin(Time.deltaTime));
 			temp.transform.position = new Vector3((Mathf.Sin(Time.time) * Time.deltaTime) + temp.transform.position.x, spawnSpeed + temp.transform.position.y, 0);
 			//temp.transform.rotation = new Quaternion((Mathf.Sin(Time.time) * Time.deltaTime) + temp.transform.rotation.x, 0, 0, 0);
 			temp.GetComponent<AudioSource>().enabled = true;
@@ -64,7 +63,6 @@ public class CaveGeneration : MonoBehaviour {
 	}
 
 	IEnumerator SpawnRegularStone(GameObject temp) {
-		Debug.Log(Mathf.Sin(Time.deltaTime));
 		temp.transform.position = new Vector3((Mathf.Sin(Time.time) * Time.deltaTime) + temp.transform.position.x, spawnSpeed + temp.transform.position.y, 0);
 		//temp.transform.rotation = new Quaternion((Mathf.Sin(Time.time) * Time.deltaTime) + temp.transform.rotation.x, 0, 0, 0);
 		temp.GetComponent<AudioSource>().enabled = true;
