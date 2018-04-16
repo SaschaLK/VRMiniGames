@@ -9,7 +9,8 @@ public class PickaxeBehaviour : MonoBehaviour {
     public AudioClip pickAxeStoneSoundClip;
     public AudioClip pickaxeBell;
     public AudioClip pickaxeAura;
-    public GameObject particles;
+    public List<ParticleSystem> particles;
+    //public GameObject particles;
 	public float floatStrength;
 	private Vector3 floatVector;
 
@@ -54,9 +55,10 @@ public class PickaxeBehaviour : MonoBehaviour {
             AudioSource.PlayClipAtPoint(pickaxeBell, transform.position);
             aura.Stop();
 
-            particles.SetActive(false);
-            //TO Do Slow disappear of particles
-            //foreach(particles in )
+            //particles.SetActive(false);
+            foreach(ParticleSystem system in particles) {
+                system.Stop();
+            }
 		}
 	}
 

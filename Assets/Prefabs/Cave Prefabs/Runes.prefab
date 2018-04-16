@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a4b3f434a88384f8bb5ee9f7c4d22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftRune: {fileID: 1346613323120734, guid: 0773ff035c50eea45ad232dcf6de3a0f, type: 2}
-  centerRune: {fileID: 1815779150033514, guid: 853f907ab7fe98145b1ff3d97fd81a54, type: 2}
-  rightRune: {fileID: 1054356938271396, guid: 2a943af3e245eaa40ae1787ed359669f, type: 2}
+  leftRune: {fileID: 1701015143649002, guid: eff8a51969f1c194f94ffd8f9d8f2c43, type: 2}
+  centerRune: {fileID: 1465605324491136, guid: 2dffb89e37b0c904ea3248fac7609466, type: 2}
+  rightRune: {fileID: 1152933416584678, guid: 64cac0d865152054da806d3d379cc4e8, type: 2}

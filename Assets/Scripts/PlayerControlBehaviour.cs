@@ -18,7 +18,8 @@ public class PlayerControlBehaviour : MonoBehaviour {
     public float dashSpeed;
     public float dashStoppingSpeed;
     private float currentDashTime;
-    private Vector3 direction;
+    [HideInInspector]
+    public Vector3 direction;
     private float dashDistance;
 
 	private void Awake() {
@@ -38,7 +39,7 @@ public class PlayerControlBehaviour : MonoBehaviour {
             dashing = false;
         }
         if (currentDashTime < dashTime) {
-            gameObject.transform.localPosition = gameObject.transform.localPosition + direction;
+            gameObject.transform.position = gameObject.transform.position + direction;
             currentDashTime += dashStoppingSpeed;
         }
     }

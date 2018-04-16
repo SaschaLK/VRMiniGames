@@ -75,7 +75,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4792150954428840}
-  - component: {fileID: 136240373866471202}
   - component: {fileID: 136231003316415132}
   m_Layer: 9
   m_Name: MiningCollider
@@ -336,7 +335,7 @@ MonoBehaviour:
     type: 3}
   pickaxeBell: {fileID: 8300000, guid: 28e9b4a6c3d32174983bf47e70dcb41b, type: 3}
   pickaxeAura: {fileID: 8300000, guid: dc4d8126919b8144c8fb2976f2a10301, type: 3}
-  particles: {fileID: 0}
+  particles: {fileID: 1332168910106346}
   floatStrength: 0.001
   pickState: 0
 --- !u!136 &136231003316415132
@@ -352,19 +351,6 @@ CapsuleCollider:
   m_Height: 0.2
   m_Direction: 2
   m_Center: {x: 0, y: 0.7, z: -0.25}
---- !u!136 &136240373866471202
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1289517759792744}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.06
-  m_Height: 0.2
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.7, z: 0.25}
 --- !u!136 &136792980834886538
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -438,7 +424,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2001222245
+  randomSeed: -892578362
   InitialModule:
     serializedVersion: 3
     enabled: 1

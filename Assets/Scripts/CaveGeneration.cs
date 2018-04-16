@@ -47,15 +47,15 @@ public class CaveGeneration : MonoBehaviour {
 	}
 
 	public void PlaceStartStone() {
-		GameObject temp = Instantiate(startStone, new Vector3(0, -2, -1.4f), Quaternion.identity, caveHolder.transform);
+		GameObject temp = Instantiate(startStone, new Vector3(startStone.transform.position.x, -2, startStone.transform.position.z), Quaternion.identity, caveHolder.transform);
 		StartCoroutine(SpawnStartStone(temp));
+        startStoneDust.transform.position = startStone.transform.position;
 		startStoneDust.SetActive(true);
 	}
 
 	IEnumerator SpawnStartStone(GameObject temp) {
 		for (float i = 0; i < spawnTime; i += spawnStoppingSpeed) {
-			temp.transform.position = new Vector3((Mathf.Sin(Time.time) * Time.deltaTime) + temp.transform.position.x, spawnSpeed + temp.transform.position.y, 0);
-			//temp.transform.rotation = new Quaternion((Mathf.Sin(Time.time) * Time.deltaTime) + temp.transform.rotation.x, 0, 0, 0);
+			temp.transform.position = new Vector3(temp.transform.position.x, spawnSpeed + temp.transform.position.y, startStone.transform.position.z);
 			temp.GetComponent<AudioSource>().enabled = true;
 			yield return new WaitForSeconds(spawnSpeed);
 		}
@@ -64,7 +64,6 @@ public class CaveGeneration : MonoBehaviour {
 
 	IEnumerator SpawnRegularStone(GameObject temp) {
 		temp.transform.position = new Vector3((Mathf.Sin(Time.time) * Time.deltaTime) + temp.transform.position.x, spawnSpeed + temp.transform.position.y, 0);
-		//temp.transform.rotation = new Quaternion((Mathf.Sin(Time.time) * Time.deltaTime) + temp.transform.rotation.x, 0, 0, 0);
 		temp.GetComponent<AudioSource>().enabled = true;
 		temp.SetActive(false);
 		Debug.Log("hello");
