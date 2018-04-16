@@ -257,7 +257,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1584228810
+  randomSeed: 62496159
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3572,43 +3572,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &491938170
+--- !u!1 &762855975
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 1650623154212474, guid: 6e5e0aeb9112ce24388330554ffe5f65,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 491938171}
-  - component: {fileID: 491938173}
-  - component: {fileID: 491938172}
+  - component: {fileID: 762855978}
+  - component: {fileID: 762855977}
+  - component: {fileID: 762855976}
   m_Layer: 9
-  m_Name: Particle System
+  m_Name: StoneDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &491938171
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 491938170}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.526, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1489228485}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!199 &491938172
+  m_IsActive: 0
+--- !u!199 &762855976
 ParticleSystemRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 199238408326378472, guid: 6e5e0aeb9112ce24388330554ffe5f65,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 491938170}
+  m_GameObject: {fileID: 762855975}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -3656,19 +3645,20 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!198 &491938173
+--- !u!198 &762855977
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 198153216592291382, guid: 6e5e0aeb9112ce24388330554ffe5f65,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 491938170}
+  m_GameObject: {fileID: 762855975}
   serializedVersion: 5
   lengthInSec: 0.2
   simulationSpeed: 1
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -3716,7 +3706,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1715000068
+  randomSeed: 1978566797
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6973,6 +6963,20 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!4 &762855978
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4915661283093280, guid: 6e5e0aeb9112ce24388330554ffe5f65,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 762855975}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1.526, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &945225196 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1425395512227520, guid: fea216b7621e53544b013ed1e62afbb9,
@@ -7081,77 +7085,6 @@ Prefab:
       objectReference: {fileID: 1093372161}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8bcc170c0c62624d9b00b8b2263deeb, type: 2}
-  m_IsPrefabParent: 0
---- !u!1 &1489228484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1489228485}
-  m_Layer: 0
-  m_Name: DustStone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1489228485
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1489228484}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 491938171}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1551198300
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4672249710900032, guid: 3e12166cb1a60f9439d5e04b7bb8bbd8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672249710900032, guid: 3e12166cb1a60f9439d5e04b7bb8bbd8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672249710900032, guid: 3e12166cb1a60f9439d5e04b7bb8bbd8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672249710900032, guid: 3e12166cb1a60f9439d5e04b7bb8bbd8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672249710900032, guid: 3e12166cb1a60f9439d5e04b7bb8bbd8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672249710900032, guid: 3e12166cb1a60f9439d5e04b7bb8bbd8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672249710900032, guid: 3e12166cb1a60f9439d5e04b7bb8bbd8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672249710900032, guid: 3e12166cb1a60f9439d5e04b7bb8bbd8, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 3e12166cb1a60f9439d5e04b7bb8bbd8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1578996399
 GameObject:
@@ -7350,5 +7283,6 @@ MonoBehaviour:
   map: {fileID: 277833008}
   player: {fileID: 945225196}
   musicManager: {fileID: 1578996399}
+  stoneDust: {fileID: 762855975}
   score: 0
   gameTime: 0

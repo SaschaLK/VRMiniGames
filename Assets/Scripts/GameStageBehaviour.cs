@@ -12,6 +12,7 @@ public class GameStageBehaviour : MonoBehaviour {
     public GameObject player;
     private Vector3 playerStartPosition;
     public GameObject musicManager;
+	public GameObject stoneDust;
 	[HideInInspector]
     public int score;
     [HideInInspector]
@@ -70,15 +71,23 @@ public class GameStageBehaviour : MonoBehaviour {
 
     IEnumerator GameTime() {
         //62 Seconds is game time
-        yield return new WaitForSecondsRealtime(10);
+        yield return new WaitForSecondsRealtime(62);
         player.transform.position = playerStartPosition;
         SetEndGameStage();
     }
+
+	public IEnumerator PlayDust(Vector3 position) {
+		stoneDust.transform.position = position;
+		stoneDust.SetActive(true);
+		yield return new WaitForSecondsRealtime(2);
+		stoneDust.SetActive(false);
+	}
 
 	//no oculus test
 	private void Update() {
 		if(!temp && Time.timeSinceLevelLoad > 5) {
 			temp = true;
+			//StartCoroutine(PlayDust());
 			//SetMiningStage();
 			//SetStartGameStoneStage();
 			//SetEndGameStage();

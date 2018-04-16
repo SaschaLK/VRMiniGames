@@ -5,7 +5,6 @@ using UnityEngine;
 public class StoneBehaviour : MonoBehaviour {
 
     public int hitpoints;
-    public GameObject stoneDust;
     public enum StoneType { lcrStone, lStone, lcStone, rStone, rcStone }
     private StoneType localStoneType;
 
@@ -45,6 +44,7 @@ public class StoneBehaviour : MonoBehaviour {
                 Debug.Log("You fucked up");
             }
             GameStageBehaviour.instance.score++;
+			GameStageBehaviour.instance.PlayDust(gameObject.transform.position);
             gameObject.SetActive(false);
         }
         PickaxeBehaviour.instance.PlayPickSound (stonePosition);
