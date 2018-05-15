@@ -10,6 +10,7 @@ public class GameStageBehaviour : MonoBehaviour {
 	public GameObject map;
 	//public Scene endGameScene;
     public GameObject player;
+    private bool playerSpawned;
     private Vector3 playerStartPosition;
     public GameObject musicManager;
 	public GameObject stoneDust;
@@ -34,6 +35,10 @@ public class GameStageBehaviour : MonoBehaviour {
 	}
 
 	private void Start() {
+        if (!playerSpawned) {
+            playerSpawned = true;
+            Instantiate(player);
+        }
         map.GetComponent<CaveGeneration>().SpawnEmpty();
 	}
 
@@ -71,7 +76,8 @@ public class GameStageBehaviour : MonoBehaviour {
 
     IEnumerator GameTime() {
         //62 Seconds is game time
-        yield return new WaitForSecondsRealtime(62);
+        //57 Seconds
+        yield return new WaitForSecondsRealtime(60);
         player.transform.position = playerStartPosition;
         SetEndGameStage();
     }

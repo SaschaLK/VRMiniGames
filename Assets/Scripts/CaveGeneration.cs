@@ -62,12 +62,20 @@ public class CaveGeneration : MonoBehaviour {
 		startStoneDust.SetActive(false);
 	}
 
-	IEnumerator SpawnRegularStone(GameObject temp) {
-		temp.transform.position = new Vector3((Mathf.Sin(Time.time) * Time.deltaTime) + temp.transform.position.x, spawnSpeed + temp.transform.position.y, 0);
-		temp.GetComponent<AudioSource>().enabled = true;
-		temp.SetActive(false);
-		Debug.Log("hello");
-		yield return new WaitForSeconds(spawnSpeed);
+    private void SpawnStone(int i, int j, float zOffset, StoneBehaviour.StoneType stoneType) {
+        GameObject temp = Instantiate(stonePrefab, new Vector3(j * spacing, -2, i * spacing + (spacing * zOffset)), new Quaternion(0, Random.Range(0, 360), 0, Random.Range(0, 360)), caveHolder.transform);
+        float tempScale = Random.Range(0.8f, 1.2f);
+        temp.transform.localScale = new Vector3(tempScale, tempScale, tempScale);
+        temp.GetComponentInChildren<StoneBehaviour>().SetStoneType(stoneType);
+        StartCoroutine(SpawnRegularStone(temp));
+    }
+
+    IEnumerator SpawnRegularStone(GameObject temp) {
+        for (float j = 0; j < spawnTime; j += spawnStoppingSpeed) {
+	    	temp.transform.position = new Vector3(temp.transform.position.x, spawnSpeed + temp.transform.position.y, temp.transform.position.z);
+    		temp.GetComponent<AudioSource>().enabled = true;
+		    yield return new WaitForSeconds(spawnSpeed);
+        }
 	}
 
 	public void BuildCave() {
@@ -124,6 +132,26 @@ public class CaveGeneration : MonoBehaviour {
 				//Instantiate Stones
 				for (int i = 0; i < grid.Length; i++) {
 					for (int j = 0; j < grid[i].Length; j++) {
+                        if (grid[i][j] && j == 0 && i != grid.Length - 1) {
+                            SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.lcrStone);
+                        }
+                        else if(grid[i][j] && j == 0 && i == grid.Length - 1) {
+                            SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.cStone);
+                        }
+                        else if(grid[i][j] && j != 0 && !grid[i][j + 1] && i >= grid.Length/2 + 1) {
+                            SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.lStone);
+                            SpawnStone(i, -j, zOffset, StoneBehaviour.StoneType.rcStone);
+                        }
+                        else if (grid[i][j]) {
+                            SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.lcrStone);
+                            SpawnStone(i, -j, zOffset, StoneBehaviour.StoneType.lcrStone);
+                            Debug.Log("works");
+                        }
+                        else if(!grid[i][j]) {
+                            SpawnWall(i, j, zOffset);
+                            SpawnWall(i, -j, zOffset);
+                        }
+                        /*
 						if (grid[i][j] && i <= (int)grid.Length / 2) {
 							if (i == (int)grid.Length / 2 || i == ((int)grid.Length / 2) - 1) {
 								SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.lcStone);
@@ -148,20 +176,12 @@ public class CaveGeneration : MonoBehaviour {
 							SpawnWall(i, j, zOffset);
 							SpawnWall(i, -j, zOffset);
 						}
+                        */
 					}
 				}
 			}
 			oneSpawn = true;
 		}
-	}
-
-	private void SpawnStone(int i, int j, float zOffset, StoneBehaviour.StoneType stoneType) {
-		//TODO Spawn animation for Stones 
-		GameObject temp = Instantiate(stonePrefab, new Vector3(j * spacing, 0, i * spacing + (spacing * zOffset)), new Quaternion(0, Random.Range(0, 360), 0, Random.Range(0, 360)), caveHolder.transform);
-		//SpawnRegularStone(temp);
-		float tempScale = Random.Range(0.8f, 1.2f);
-		temp.transform.localScale = new Vector3(tempScale, tempScale, tempScale);
-		temp.GetComponentInChildren<StoneBehaviour>().SetStoneType(stoneType);
 	}
 
 	private void SpawnWall(int i, int j, float zOffset) {
