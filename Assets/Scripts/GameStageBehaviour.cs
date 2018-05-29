@@ -77,7 +77,7 @@ public class GameStageBehaviour : MonoBehaviour {
     IEnumerator GameTime() {
         //62 Seconds is game time
         //57 Seconds
-        yield return new WaitForSecondsRealtime(60);
+        yield return new WaitForSecondsRealtime(62);
         player.transform.position = playerStartPosition;
         SetEndGameStage();
     }
