@@ -132,6 +132,26 @@ public class CaveGeneration : MonoBehaviour {
 				//Instantiate Stones
 				for (int i = 0; i < grid.Length; i++) {
 					for (int j = 0; j < grid[i].Length; j++) {
+                        if (grid[i][j] && j == 0 && i != grid.Length - 1) {
+                            SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.lcrStone);
+                        }
+                        else if(grid[i][j] && j == 0 && i == grid.Length - 1) {
+                            SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.cStone);
+                        }
+                        else if(grid[i][j] && j != 0 && !grid[i][j + 1] && i >= grid.Length/2 + 1) {
+                            SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.lStone);
+                            SpawnStone(i, -j, zOffset, StoneBehaviour.StoneType.rcStone);
+                        }
+                        else if (grid[i][j]) {
+                            SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.lcrStone);
+                            SpawnStone(i, -j, zOffset, StoneBehaviour.StoneType.lcrStone);
+                            Debug.Log("works");
+                        }
+                        else if(!grid[i][j]) {
+                            SpawnWall(i, j, zOffset);
+                            SpawnWall(i, -j, zOffset);
+                        }
+                        /*
 						if (grid[i][j] && i <= (int)grid.Length / 2) {
 							if (i == (int)grid.Length / 2 || i == ((int)grid.Length / 2) - 1) {
 								SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.lcStone);
@@ -156,6 +176,7 @@ public class CaveGeneration : MonoBehaviour {
 							SpawnWall(i, j, zOffset);
 							SpawnWall(i, -j, zOffset);
 						}
+                        */
 					}
 				}
 			}

@@ -22,6 +22,7 @@ public class GameManagerBehaviour : MonoBehaviour {
 
     public void StoneHitVibrate (AudioClip pickaxeClip) {
         OVRHapticsClip hapticClip = new OVRHapticsClip (pickaxeClip);
+        /*
         if(pickaxe.grabbedBy.m_controller == OVRInput.Controller.LTouch) {
             for (int i = 0; i < vibrationIntensity; i++) {
                 OVRHaptics.LeftChannel.Mix (hapticClip);
@@ -32,5 +33,6 @@ public class GameManagerBehaviour : MonoBehaviour {
                 OVRHaptics.RightChannel.Mix (hapticClip);
             }
         }
+        */
     }
 }
