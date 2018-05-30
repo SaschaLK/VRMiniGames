@@ -44,6 +44,10 @@ public class PlayerControlBehaviour : MonoBehaviour {
         }
     }
 
+    public void SetPosition(Vector3 posi) {
+        this.gameObject.transform.position = posi;
+    }
+
     public void StoneHitVibrate(AudioClip pickaxeClip) {
 		OVRHapticsClip hapticClip = new OVRHapticsClip(pickaxeClip);
         /*

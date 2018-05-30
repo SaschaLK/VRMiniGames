@@ -145,7 +145,6 @@ public class CaveGeneration : MonoBehaviour {
                         else if (grid[i][j]) {
                             SpawnStone(i, j, zOffset, StoneBehaviour.StoneType.lcrStone);
                             SpawnStone(i, -j, zOffset, StoneBehaviour.StoneType.lcrStone);
-                            Debug.Log("works");
                         }
                         else if(!grid[i][j]) {
                             SpawnWall(i, j, zOffset);

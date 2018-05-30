@@ -62,8 +62,8 @@ public class GameStageBehaviour : MonoBehaviour {
 
     //If Time is over, set Endscreen
     public void SetEndGameStage() {
-        Debug.Log(score);
 		SceneManager.LoadScene("EndGame");
+        player.transform.position = playerStartPosition;
 	}
 
 	IEnumerator BuildingCave() {
@@ -76,9 +76,9 @@ public class GameStageBehaviour : MonoBehaviour {
 
     IEnumerator GameTime() {
         //62 Seconds is game time
-        //57 Seconds
+        //57 Seconds is game time as well
         yield return new WaitForSecondsRealtime(60);
-        player.transform.position = playerStartPosition;
+        PlayerControlBehaviour.instance.SetPosition(playerStartPosition);
         SetEndGameStage();
     }
 
